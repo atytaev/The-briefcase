@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Мой Блог{% endblock %}
+
+{% block content %}
+    <h2>Последние статьи</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3><a href="{{ url_for('post', post_id=post['id']) }}">{{ post['title'] }}</a></h3>
+                <p>{{ post['content']|truncate(100) }}</p>
+                <p>Автор: {{ post['author'] }}</p>
+                <p>Дата публикации: {{ post['created_at'] }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

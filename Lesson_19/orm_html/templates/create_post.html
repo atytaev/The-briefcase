@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Создать статью{% endblock %}
+
+{% block content %}
+    <h2>Создать статью</h2>
+    <form method="POST" action="{{ url_for('create_post') }}">
+        <label for="title">Заголовок:</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="content">Текст статьи:</label>
+        <textarea name="content" id="content" required></textarea>
+
+        <label for="author">Автор:</label>
+        <input type="text" name="author" id="author" value="{% if 'username' in session %}{{ session['username'] }}{% else %}{{ request.form.get('author') }}{% endif %}" required>
+
+        <button type="submit">Создать</button>
+    </form>
+{% endblock %}
