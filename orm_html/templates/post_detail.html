@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ posts.title }}</h2>
+<p class="date "><strong>Заглавие:</strong> {{ posts.title }}</p>
+<p class="date "><strong>Описание:</strong> {{ posts.content }}</p>
+<p class="date "><strong>Автор:</strong> {{ posts.author }}</p>
+<p class="date "><strong>Время публикации:</strong> {{ posts.created_at }}</p>
+
+
+<h3 class="date ">Комментарии:</h3>
+<ul class="date ">
+    {% for comment in comments %}
+    <li>
+        <p><strong>{{ comment.author }}</strong> - {{ comment.created_at }}</p>
+        <p>{{ comment.content }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% if current_user.is_authenticated %}
+    <h3>Добавить комментарий:</h3>
+    <form action="{{ url_for('add_comments', post_id=posts.id) }}" method="POST">
+        <input type="hidden" name="author" value="{% if 'username' in session %}{{ session['username'] }}{% else %}
+        {{ request.form.get('author') }}{% endif %}">
+        <textarea name="content" placeholder="Оставьте комментарий..."></textarea>
+        <button type="submit">Добавить комментарий</button>
+    </form>
+{% else %}
+    <p>Чтобы оставить комментарий, войдите в систему.</p>
+{% endif %}
+{% endblock %}
