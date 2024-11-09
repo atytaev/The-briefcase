@@ -7,17 +7,33 @@
 
     <h1>Вход</h1>
 
-    {% if error %}
-    <p class="error"> YTdt </p>
-    {% endif %}
 
-    <form class="form" method="POST" action="{{ url_for('login') }}">
-        <label for="username">Имя пользователя:</label>
-        <input type="text" name="username" id="username" required>
-
-        <label for="password">Пароль:</label>
-        <input type="password" name="password" id="password" required>
-
-        <button type="submit">Войти</button>
+     <form class="form"  action="" method="post">
+	{{ form.csrf_token }}
+	<p>
+	    {{ form.username.label() }}
+	    {{ form.username() }}
+	    {% if form.username.errors %}
+		{% for error in form.username.errors %}
+		    {{ error }}
+		{% endfor %}
+	    {% endif %}
+	</p>
+	<p>
+	    {{ form.password.label() }}
+	    {{ form.password() }}
+	    {% if form.password.errors %}
+		{% for error in form.password.errors %}
+		    {{ error }}
+		{% endfor %}
+	    {% endif %}
+	</p>
+	<p>
+	    {{ form.remember.label() }}
+	    {{ form.remember() }}
+	</p>
+	<p>
+	    {{ form.submit() }}
+	</p>
     </form>
 {% endblock %}

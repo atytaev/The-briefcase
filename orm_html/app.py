@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from sqlalchemy.exc import NoResultFound
 from flask_sqlalchemy import SQLAlchemy
 from models import Posts, Comment, Users
@@ -6,7 +6,7 @@ from db import get_session
 from config import Config
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 import os
-
+from forms import LoginForm
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -17,9 +17,7 @@ login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(id):
-    with get_session() as session:
-        username = session.query(Users).get(id)
-    return username
+    return db.session.query(Users).get(id)
 
 
 
@@ -208,7 +206,7 @@ def create_post():
 def add_comments(post_id):
     if not request.form or 'content' not in request.form:
         return {'error': 'Content is required'}, 400
-    comment = Comment(content=request.form['content'], post_id=post_id, author=current_user)
+    comment = Comment(content=request.form['content'], post_id=post_id)
     print(comment)
     db.session.add(comment)
     db.session.commit()
@@ -247,19 +245,30 @@ def register():
 @app.route('/post/login', methods=['GET', 'POST'])
 
 def login():
-    with get_session() as session:
-        if request.method == 'POST':
-            username = request.form['username']
-            password = request.form['password']
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = db.session.query(Users).filter(Users.username == form.username.data).first()
+        user = user.decode
+        if user is None or not user.check_password(form.password.data):
+            login_user(user, remember=form.remember.data)
+            return redirect(url_for('login'))
+        flash('Invalid username or password')
+        return redirect(url_for('index'))
+    return render_template('login.html', form=form)
 
-            user = session.query(Users).filter_by(username=username).first()
-
-            if user is None or not user.check_password(password):
-
-                return redirect(url_for('login'))
-            login_user(user)
-            return redirect(url_for('index'))
-        return render_template('login.html', title='Вход')
+    # with get_session() as session:
+        # if request.method == 'POST':
+        #     username = request.form['username']
+        #     password = request.form['password']
+        #
+        #     user = session.query(Users).filter_by(username=username).first()
+        #
+        #     if user is None or not user.check_password(password):
+        #
+        #         return redirect(url_for('login'))
+        #     login_user(user)
+        #     return redirect(url_for('index'))
+        # return render_template('login.html', title='Вход')
 
 
 @app.route('/post/logout')

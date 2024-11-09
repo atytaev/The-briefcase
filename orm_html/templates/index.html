@@ -8,7 +8,6 @@
     <ul>
         {% for post in posts %}
             <li>
-
                 <h2><a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post['title'] }}</a></h2>
                 <p>{{ post.author }}</p>
                 </a>

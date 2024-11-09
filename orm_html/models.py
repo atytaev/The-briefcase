@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from base_models import BaseModel
 from sqlalchemy import Integer, String, DateTime, ForeignKey, Column
@@ -29,7 +28,7 @@ class Comment(BaseModel):
 class Users(UserMixin, BaseModel):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    username = Column(String)
+    username = Column(String, nullable=False, unique=True)
     password_hash = Column(String, nullable=False)
 
 
