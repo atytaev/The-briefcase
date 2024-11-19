@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+        {% for blog in blogs %}
+                <a href="{% url 'post_detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+                Автор: {{ blog.author.first_name }}
+        {% endfor %}
+{% endblock %}
