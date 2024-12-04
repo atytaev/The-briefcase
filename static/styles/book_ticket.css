@@ -1,0 +1,105 @@
+/* Общий стиль для всего контейнера */
+.ticket-container {
+    background-color: #333; /* Темный фон для контейнера */
+    color: white; /* Белый цвет текста */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Выравниваем текст по центру */
+}
+
+/* Заголовок */
+.ticket-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Описание */
+.ticket-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Сообщение об ошибке */
+.error-message {
+    color: #ff6b6b; /* Красный цвет для ошибки */
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Стили для экрана */
+.screen-container {
+    background-color: #555; /* Темно-серый фон для экрана */
+    padding: 5px 0px; /* Увеличение отступов для высоты */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 18px; /* Размер текста для экрана */
+    width: 50%; /* Уменьшение ширины до половины страницы */
+    margin: 0 auto 30px; /* Центрирование экрана */
+    border-radius: 50px; /* Скругление краев */
+}
+
+.screen-label {
+    color: white;
+}
+
+/* Схема зала */
+.hall-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.seat-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Стиль для кнопок мест */
+.seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-color: #757575; /* Свободное место */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.seat.booked {
+    background-color: #f44336; /* Занятое место */
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background-color: #007bff; /* Выбранное место */
+    color: black;
+}
+
+/* Кнопка бронирования */
+.ticket-submit {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ticket-submit:hover {
+    background-color: #0056b3; /* Темный оттенок синего при наведении */
+}
+
+.ticket-submit:active {
+    transform: scale(0.98); /* Легкое сжатие кнопки при клике */
+}
+
+

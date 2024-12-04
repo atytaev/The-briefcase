@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/actor_detail.css' %}">
+<section class="actor-detail">
+    <div class="container">
+        <img src="{{ actor.photo.url }}" alt="{{ actor.name }}" class="actor-photo">
+        <h1>{{ actor.name }}</h1>
+        <p><strong>Дата рождения:</strong> {{ actor.birth_date|date:"d M, Y" }}</p>
+        <p>{{ actor.bio }}</p>
+
+        <!-- Фильмография -->
+        <div class="filmography">
+            <h2>Фильмография</h2>
+            <ul class="film-list">
+                {% for film in actor.film_set.all %}
+                <li>
+                    <a href="{% url 'film_detail' film.id %}">{{ film.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

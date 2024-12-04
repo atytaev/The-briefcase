@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/session_list.css' %}">
+<section class="container">
+    <h2>Выбор даты и фильма</h2>
+
+    <!-- Блок с переключением дат -->
+    <div class="date-selector">
+        {% for date in dates %}
+        <a href="?date={{ date|date:'Y-m-d' }}" class="btn {% if date == selected_date %}active{% endif %}">
+            {{ date|date:"d M, Y" }}
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Список фильмов за выбранную дату -->
+    <div class="films">
+        {% for film in films %}
+        <div class="film-card">
+            <img src="{{ film.poster.url }}" alt="{{ film.title }}">
+            <div class="film-info">
+                <h3>{{ film.title }}</h3>
+                <p>{{ film.description }}</p>
+            </div>
+            <div class="sessions">
+                <h4>Сеансы</h4>
+                {% for session in sessions %}
+                    {% if session.film == film %}
+                    <div class="session">
+                        <p><strong>Время:</strong> {{ session.start_time|date:"H:i" }}</p>
+                        <p><strong>Зал:</strong> {{ session.hall }}</p>
+                        <a href="{% url 'book_ticket' session.pk %}" class="btn">Купить билет</a>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

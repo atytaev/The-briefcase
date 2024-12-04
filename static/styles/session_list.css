@@ -1,0 +1,167 @@
+/* Основной контейнер */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Заголовок страницы */
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #222;
+    font-weight: 700;
+}
+
+/* Блок с переключением дат */
+.date-selector {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.date-selector .btn {
+    padding: 12px 20px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #444;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.date-selector .btn:hover {
+    background-color: #0077ff;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+.date-selector .btn.active {
+    background-color: #0077ff;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Сетка фильмов */
+.films {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Карточка фильма */
+.film-card {
+    width: 500px; /* Фиксированная ширина */
+    height: auto; /* Фиксированная высота */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #e3e3e3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.film-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.film-card img {
+    width: 100%;
+    height: auto;
+}
+
+/* Информация о фильме */
+.film-info {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.film-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #0077ff;
+    font-weight: 600;
+}
+
+.film-info p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Сеансы */
+.sessions {
+    padding: 15px;
+    text-align: center;
+}
+
+.sessions h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.session {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+.session:last-child {
+    border-bottom: none;
+}
+
+.session p {
+    margin: 0;
+    color: #333;
+}
+
+.session .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background-color: #0077ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.session .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .date-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .film-card {
+        margin: 0 auto;
+    }
+
+    .session {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .session .btn {
+        margin-top: 10px;
+    }
+}

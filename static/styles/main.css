@@ -1,0 +1,64 @@
+/* Общий стиль */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0d0d0d;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Шапка */
+.header {
+    background-color: #1a1a1a;
+    padding: 20px 0;
+}
+
+
+/* Контейнер для элементов внутри хедера */
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Равномерно распределяет пространство между элементами */
+    align-items: center;
+}
+
+/* Стиль для логотипа (названия компании) */
+.company-name .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Panelines', sans-serif;
+}
+
+/* Стиль для кнопки "Войти" */
+.header-actions .btn {
+    font-size: 1rem;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.header-actions .btn:hover {
+    background-color: #f44336;
+    border-color: #f44336;
+}
+
+.logo-img {
+    width: 90px; /* Задайте нужную ширину логотипа */
+    height: 90; /* Сохраняет пропорции */
+    display: block; /* Убирает возможные отступы */
+}
+
+
+
+

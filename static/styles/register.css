@@ -1,0 +1,89 @@
+/* Общий стиль для формы */
+form {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 425px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Заголовок формы */
+form h2 {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Стиль для меток полей */
+form label {
+    font-size: 0.85rem;
+    color: #fff;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+}
+
+/* Стиль для полей ввода */
+form input[type="text"], form input[type="password"], form input[type="email"], form input[type="date"], form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    background-color: #333;
+    border: 2px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus, form input[type="date"]:focus, form input[type="file"]:focus {
+    border-color: #f44336;
+    background-color: #222;
+    outline: none;
+}
+
+/* Кнопка отправки */
+form button {
+    width: 100%;
+    padding: 8px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #e53935;
+}
+
+/* Стили для ссылок */
+form .auth-links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+form .auth-links a {
+    color: #f44336;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+form .auth-links a:hover {
+    color: #e53935;
+}
+
+/* Стиль для контейнера */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d0d0d;
+}

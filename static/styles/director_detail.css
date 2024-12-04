@@ -1,0 +1,97 @@
+/* Страница режиссера */
+.director-detail {
+    padding: 40px 0;
+    background-color: #0f0f0f;
+    color: #fff;
+}
+
+.director-detail .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.director-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f44336;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.director-photo:hover {
+    transform: scale(1.05);
+}
+
+.director-detail h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #f44336;
+}
+
+.director-detail p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.filmography {
+    margin-top: 30px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 800px;
+}
+
+.filmography h2 {
+    font-size: 1.8rem;
+    color: #f44336;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.film-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.film-list li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.film-list li a {
+    text-decoration: none;
+    color: #f44336;
+    transition: color 0.3s ease;
+}
+
+.film-list li a:hover {
+    color: #e53935;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .director-detail .container {
+        padding: 0 20px;
+    }
+
+    .filmography {
+        padding: 15px;
+    }
+
+    .filmography h2 {
+        font-size: 1.6rem;
+    }
+
+    .film-list li {
+        font-size: 1rem;
+    }
+}

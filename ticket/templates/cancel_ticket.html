@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if ticket %}
+        <div class="ticket-info">
+            <p>Вы забронировали место {{ ticket.seat_number }} на сеанс "{{ ticket.session.film.title }}"</p>
+            <p>Дата и время: {{ ticket.session.start_time }}</p>
+            <p>Если вы хотите отменить бронь, нажмите на кнопку ниже:</p>
+            <form method="post" action="{% url 'cancel_ticket' ticket.id %}">
+                {% csrf_token %}
+                <button type="submit" class="cancel-button">Отменить бронь</button>
+            </form>
+        </div>
+    {% else %}
+        <p>У вас нет забронированных билетов для этого сеанса.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <h2>Информация о сеансе</h2>
+    <div class="session-detail">
+        <h3>{{ session.film.title }}</h3>
+        <p><strong>Дата и время:</strong> {{ session.start_time }}</p>
+        <p><strong>Зал:</strong> {{ session.hall }}</p>
+        <p><strong>Доступно мест:</strong> {{ session.available_seats }}</p>
+        <p><strong>Описание фильма:</strong> {{ session.film.description }}</p>
+        <a href="{% url 'book_ticket' session.pk %}" class="btn">Забронировать билет</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/register.css' %}">
+
+
+    <div class="auth-container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Регистрация</h2>
+
+            <label for="id_username">Имя пользователя</label>
+            {{ form.username }}
+
+            <label for="id_password1">Пароль</label>
+            {{ form.password1 }}
+
+            <label for="id_password2">Подтверждение пароля</label>
+            {{ form.password2 }}
+
+            <label for="id_phone_number">Номер телефона</label>
+            {{ form.phone_number }}
+
+            <button type="submit">Зарегистрироваться</button>
+
+            <div class="auth-links">
+                <p>Уже есть аккаунт? <a href="{% url 'user_login' %}">Войти</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

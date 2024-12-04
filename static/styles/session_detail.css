@@ -1,0 +1,88 @@
+/* Общий контейнер страницы */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Заголовок страницы */
+h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Карточка информации о сеансе */
+.session-detail {
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f4f4f4);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок фильма */
+.session-detail h3 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Описание информации */
+.session-detail p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Выделение ключевой информации */
+.session-detail strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Кнопка "Забронировать билет" */
+.session-detail .btn {
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Эффект наведения для кнопки */
+.session-detail .btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .session-detail p {
+        font-size: 14px;
+    }
+
+    .session-detail .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

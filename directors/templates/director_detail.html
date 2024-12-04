@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/director_detail.css' %}">
+<section class="director-detail">
+    <div class="container">
+        <img src="{{ director.photo.url }}" alt="{{ director.name }}" class="director-photo">
+        <h1>{{ director.name }}</h1>
+        <p><strong>Дата рождения:</strong> {{ director.birth_date|date:"d M, Y" }}</p>
+        <p>{{ director.bio }}</p>
+
+        <!-- Фильмы режиссера -->
+        <div class="filmography">
+            <h2>Фильмы</h2>
+            <ul class="film-list">
+                {% for film in director.film_set.all %}
+                <li>
+                    <a href="{% url 'film_detail' film.id %}">{{ film.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/films_list.css' %}">
+
+<section class="hero">
+    <div class="container">
+        <h1>Добро пожаловать в мир кино</h1>
+        <p>Лучшие фильмы, удобные залы и незабываемые эмоции!</p>
+    </div>
+</section>
+
+<div class="content-wrapper">
+    <!-- Фильтры -->
+    <aside class="filters">
+        <h2>Фильтры</h2>
+        <form method="get">
+            {{ form.as_p }}
+            <button type="submit" class="filter-btn">Применить</button>
+        </form>
+    </aside>
+
+    <!-- Карточки фильмов -->
+    <section class="movies">
+        <div class="container">
+            <h2>Сейчас в прокате</h2>
+            <div class="movies-grid">
+                {% for film in films %}
+                    <div class="movie-card">
+                        <img src="{{ film.poster.url }}" alt="{{ film.title }}">
+
+                        <div class="movie-info">
+                            <h3>{{ film.title }}</h3>
+                            <p>
+                                {% for genre in film.genre.all %}
+                                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                        </div>
+
+                        <div class="action-buttons">
+                            <a href="{% url 'film_detail' film.id %}" class="btn">Подробнее</a>
+                            <a href="{% url 'session_list' %}" class="btn">Купить билет</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Кинотеатр. Все права защищены.</p>
+    </div>
+</footer>
+
+{% endblock %}

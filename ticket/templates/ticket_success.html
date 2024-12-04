@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <h2>Поздравляем! Ваш билет забронирован</h2>
+    <p>Вы успешно забронировали билет для фильма "{{ session.film.title }}".</p>
+    <a href="{% url 'session_list' %}" class="btn">Вернуться к сеансам</a>
+</section>
+{% endblock %}

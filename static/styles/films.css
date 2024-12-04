@@ -1,0 +1,132 @@
+/* Стиль для страницы фильмов */
+.films {
+    padding: 40px 0;
+    background-color: #0f0f0f;
+}
+
+.films h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #f44336;
+    margin-bottom: 30px;
+}
+
+.films-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.film-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.film-item:hover {
+    transform: scale(1.05);
+}
+
+.film-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.film-card {
+    position: relative;  /* Чтобы кнопки могли быть расположены внутри */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Эффект при наведении - прозрачность */
+.film-card:hover {
+    transform: translateY(-10px);
+    opacity: 0.8;  /* Уменьшаем прозрачность */
+}
+
+/* Скрытые кнопки */
+.film-card .movie-info {
+    padding: 20px;
+    text-align: center;
+    opacity: 0;  /* Изначально скрыты */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);  /* Полупрозрачный фон */
+    transition: opacity 0.3s ease;
+    padding-bottom: 40px;  /* Добавим пространство для кнопок */
+}
+
+/* Кнопки */
+.film-card:hover .movie-info {
+    opacity: 1;  /* Появляются при наведении */
+}
+
+.movie-info .btn {
+    display: inline-block;
+    font-size: 1rem;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+/* Кнопки при наведении */
+.movie-info .btn:hover {
+    background-color: #f44336;
+    border-color: #f44336;
+}
+
+.film-poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.film-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.film-title {
+    font-size: 1.6rem;
+    color: #f44336;
+    margin-bottom: 10px;
+}
+
+.film-genre {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .films h1 {
+        font-size: 2rem;
+    }
+
+    .films-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .film-title {
+        font-size: 1.4rem;
+    }
+
+    .film-genre {
+        font-size: 0.9rem;
+    }
+}
