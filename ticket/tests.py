@@ -26,8 +26,7 @@ class TicketBookingTest(TestCase):
 
     def test_book_ticket_success(self):
 
-
-        response = self.client.post(reverse('book_ticket', args=[self.session.id]), {'seat_number': 1})
+        response = self.client.post(reverse('book_ticket', args=[self.session.id]), {'seat_numbers': ['1']})
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('ticket_success'))
@@ -37,16 +36,16 @@ class TicketBookingTest(TestCase):
 
     def test_book_ticket_seat_already_booked(self):
         Ticket.objects.create(session=self.session, user=self.user, seat_number=1)
-        response = self.client.post(reverse('book_ticket', args=[self.session.id]), {'seat_number': 1})
+        response = self.client.post(reverse('book_ticket', args=[self.session.id]), {'seat_number': ['1']})
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Это место уже забронировано. Пожалуйста, выберите другое место.')
+
 
 
     def test_book_ticket_no_login(self):
         self.client.logout()
 
-        response = self.client.post(reverse('book_ticket', args=[self.session.id]), {'seat_number': 1})
+        response = self.client.post(reverse('book_ticket', args=[self.session.id]), {'seat_number': ['1']})
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, f'{reverse("user_login")}?next={reverse("book_ticket", args=[self.session.id])}')

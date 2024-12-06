@@ -39,8 +39,8 @@ def book_ticket(request, session_id):
                     'session': session,
                     'seat_rows': seat_rows,
                     'booked_seats': booked_seats,
-                    'error_message': f'Место {seat_number} уже забронировано. Пожалуйста, выберите другие места.',
                 })
+            print(booked_seats)
 
         # Создаем билеты для всех выбранных мест
         for seat_number in seat_numbers:
