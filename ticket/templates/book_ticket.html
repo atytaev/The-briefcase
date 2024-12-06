@@ -19,41 +19,46 @@
     <!-- Схема зала -->
     <form method="POST" class="ticket-form">
         {% csrf_token %}
-            <div class="hall-map">
-                {% for row in seat_rows %}
-                    <div class="seat-row">
-                        {% for seat in row %}
-                            <button
-                                type="button"
-                                class="seat {% if seat in booked_seats %}booked{% endif %}"
-                                value="{{ seat }}"
-                                onclick="selectSeat(this)"
-                                {% if seat in booked_seats %}disabled{% endif %}
-                            >
-                                {{ seat }}
-                            </button>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-            </div>
+        <div class="hall-map">
+            {% for row in seat_rows %}
+                <div class="seat-row">
+                    {% for seat in row %}
+                        <button
+                            type="button"
+                            class="seat {% if seat in booked_seats %}booked{% endif %}"
+                            value="{{ seat }}"
+                            onclick="toggleSeat(this)"
+                            {% if seat in booked_seats %}disabled{% endif %}
+                        >
+                            {{ seat }}
+                        </button>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
 
-        <!-- Скрытое поле для выбранного места -->
-        <input type="hidden" name="seat_number" id="selected-seat">
+        <!-- Скрытое поле для выбранных мест -->
+        <input type="hidden" name="seat_numbers" id="selected-seats">
         <button type="submit" class="ticket-submit">Забронировать</button>
     </form>
 </div>
 
 <script>
-    function selectSeat(button) {
-        // Убираем выделение с других кнопок
-        const allSeats = document.querySelectorAll('.seat');
-        allSeats.forEach(seat => seat.classList.remove('selected'));
+    function toggleSeat(button) {
+        const selectedSeatsField = document.getElementById('selected-seats');
+        let selectedSeats = selectedSeatsField.value ? selectedSeatsField.value.split(',') : [];
 
-        // Добавляем выделение для выбранного места
-        button.classList.add('selected');
+        const seatNumber = button.value;
 
-        // Устанавливаем выбранное место в скрытое поле формы
-        document.getElementById('selected-seat').value = button.value;
+        if (button.classList.contains('selected')) {
+            button.classList.remove('selected');
+            selectedSeats = selectedSeats.filter(seat => seat !== seatNumber);
+        } else {
+            button.classList.add('selected');
+            selectedSeats.push(seatNumber);
+        }
+
+        selectedSeatsField.value = selectedSeats.join(',');
     }
 </script>
 {% endblock %}

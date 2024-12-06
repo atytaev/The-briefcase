@@ -5,7 +5,7 @@ from django.urls import path
 
 from films.views import film_list, film_detail
 from sessionals.views import session_list, session_detail
-from ticket.views import ticket_success, book_ticket, cancel_ticket
+from ticket.views import ticket_success, book_ticket, cancel_ticket, user_ticket, payment_view, payment_success, payment_failed
 from users.views import register, user_login, user_logout
 from actors.views import actor_detail
 from directors.views import director_detail
@@ -23,6 +23,11 @@ urlpatterns = [
     path('book/<int:session_id>/', book_ticket, name='book_ticket'),
     path('success/', ticket_success, name='ticket_success'),
     path('book/<int:session_id>/cancel_ticket', cancel_ticket, name='cancel_ticket'),
+    path('my_tickets/', user_ticket, name='user_ticket'),
+    # path('pay_ticket/<int:ticket_id>/', pay_ticket, name='pay_ticket'),
+    path('payment/<int:ticket_id>/', payment_view, name='payment'),
+    path('payment/success/', payment_success, name='payment_success'),
+    path('payment/failed/', payment_failed, name='payment_failed'),
     #users
     path('register/', register, name='register'),
     path('login/', user_login, name='user_login'),

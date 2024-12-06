@@ -1,8 +1,8 @@
 from django.db import models
-from django.utils import timezone
+
 
 class Sessionals(models.Model):
-    film = models.ForeignKey('films.Film', on_delete=models.CASCADE)  # правильно указываем путь
+    film = models.ForeignKey('films.Film', on_delete=models.CASCADE)
     start_time = models.DateTimeField()
     hall = models.CharField(max_length=100)
     available_seats = models.IntegerField()

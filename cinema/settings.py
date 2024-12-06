@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.static',
+                'ticket.context_processors.paypal_client_id',
             ],
         },
     },
@@ -131,4 +132,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'users.User'
 
-TMDB_API_KEY = os.environ['TMDB_API_KEY']
+
+PAYPAL_MODE = 'sandbox'  # Используйте 'live' для реальных платежей
+PAYPAL_CLIENT_ID = os.environ['CLIENT_ID']
+PAYPAL_CLIENT_SECRET = os.environ['CLIENT_SECRET']

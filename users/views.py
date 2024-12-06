@@ -13,6 +13,7 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('user_login')
+
     elif request.method == 'GET':
         form = CustomUserCreationForm()
 

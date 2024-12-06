@@ -1,0 +1,73 @@
+/* Основной контейнер страницы */
+.my-tickets-container {
+    background-color: #1a1a1a; /* Совпадает с шапкой */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #fff;
+}
+
+/* Заголовок страницы */
+.my-tickets-header {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Таблица билетов */
+.tickets-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2a2a2a;
+    color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tickets-table th,
+.tickets-table td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #444; /* Тонкая граница между ячейками */
+}
+
+.tickets-table th {
+    background-color: #333;
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+.tickets-table tr:nth-child(even) {
+    background-color: #242424;
+}
+
+.tickets-table tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* Кнопка оплаты */
+.pay-button {
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #f44336;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+    background-color: #f44336;
+    border-color: #f44336;
+}
+
+/* Сообщение об отсутствии билетов */
+.no-tickets-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: 20px;
+}

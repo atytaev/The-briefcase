@@ -17,7 +17,11 @@
                     {% endfor %}
                 </p>
                 <p><strong>Режиссер:</strong>
-                    <a href="{% url 'director_detail' film.director.id %}">{{ film.director.name }}</a>
+                    {% if film.director %}
+                        <a href="{% url 'director_detail' film.director.pk %}">{{ film.director.name }}</a>
+                    {% else %}
+                        <span>Режиссер не указан</span>
+                    {% endif %}
                 </p>
                 <p><strong>Актеры:</strong>
                     {% for actor in film.actors.all %}

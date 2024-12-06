@@ -7,12 +7,12 @@ class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tickets')
     seat_number = models.IntegerField()
     booked_at = models.DateTimeField(auto_now_add=True)
+    is_paid = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Ticket for {self.session.film.title} ({self.seat_number})"
 
     def delete(self, *args, **kwargs):
-        # Увеличиваем количество доступных мест при удалении билета
         self.session.available_seats += 1
         self.session.save()
 

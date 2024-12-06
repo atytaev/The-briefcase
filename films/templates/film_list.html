@@ -12,7 +12,7 @@
 </section>
 
 <div class="content-wrapper">
-    <!-- Фильтры -->
+    <!-- Filters -->
     <aside class="filters">
         <h2>Фильтры</h2>
         <form method="get">
@@ -21,7 +21,7 @@
         </form>
     </aside>
 
-    <!-- Карточки фильмов -->
+    <!-- Cards films -->
     <section class="movies">
         <div class="container">
             <h2>Сейчас в прокате</h2>
@@ -41,7 +41,7 @@
 
                         <div class="action-buttons">
                             <a href="{% url 'film_detail' film.id %}" class="btn">Подробнее</a>
-                            <a href="{% url 'session_list' %}" class="btn">Купить билет</a>
+                            <a href="{% url 'session_list' %}" class="btn">Забронировать</a>
                         </div>
                     </div>
                 {% endfor %}

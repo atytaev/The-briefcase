@@ -21,7 +21,7 @@
         <div class="film-card">
             <img src="{{ film.poster.url }}" alt="{{ film.title }}">
             <div class="film-info">
-                <h3>{{ film.title }}</h3>
+                <h3>{{ session.film.title }}</h3>
                 <p>{{ film.description }}</p>
             </div>
             <div class="sessions">
@@ -31,7 +31,7 @@
                     <div class="session">
                         <p><strong>Время:</strong> {{ session.start_time|date:"H:i" }}</p>
                         <p><strong>Зал:</strong> {{ session.hall }}</p>
-                        <a href="{% url 'book_ticket' session.pk %}" class="btn">Купить билет</a>
+                        <a href="{% url 'book_ticket' session.pk %}" class="btn">Забронировать</a>
                     </div>
                     {% endif %}
                 {% endfor %}

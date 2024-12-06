@@ -20,7 +20,7 @@
             </div>
             <div class="header-actions">
                 {% if user.is_authenticated %}
-
+                    <a href="{% url 'user_ticket' %}" class="btn btn-outline">Мои билеты</a>
                     <a href="{% url 'user_logout' %}" class="btn btn-outline">Выйти</a>
                 {% else %}
                     <a href="{% url 'user_login' %}" class="btn btn-outline">Войти</a>

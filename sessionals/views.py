@@ -1,21 +1,18 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Sessionals
-from films.models import Film
-from django.utils.timezone import now
-from datetime import timedelta
-
-
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
+from django.utils.timezone import now
+
+from films.models import Film
+from .models import Sessionals
+
 
 @login_required
 def session_list(request):
-    # Получение всех уникальных дат сеансов
     today = now().date()
     sessions = Sessionals.objects.filter(start_time__date__gte=today).order_by('start_time')
 
     dates = sorted(set(session.start_time.date() for session in sessions))
 
-    # Получение выбранной даты из запроса
     selected_date = request.GET.get('date')
     if selected_date:
         sessions = sessions.filter(start_time__date=selected_date)
@@ -23,7 +20,6 @@ def session_list(request):
         selected_date = today
         sessions = sessions.filter(start_time__date=today)
 
-    # Группируем сеансы по фильмам
     films = Film.objects.filter(sessionals__in=sessions).distinct()
 
     return render(request, 'session_list.html', {
@@ -32,6 +28,7 @@ def session_list(request):
         'sessions': sessions,
         'films': films,
     })
+
 
 def session_detail(request, pk):
     session = get_object_or_404(Sessionals, pk=pk)

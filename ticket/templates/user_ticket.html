@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'styles/user_ticket.css' %}">
+
+<div class="container">
+    <div class="my-tickets-container">
+        <h2 class="my-tickets-header">Мои билеты</h2>
+
+        {% if tickets %}
+            <table class="tickets-table">
+                <thead>
+                    <tr>
+                        <th>Фильм</th>
+                        <th>Время сеанса</th>
+                        <th>Зал</th>
+                        <th>Места</th>
+                        <th>Статус оплаты</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticket in tickets %}
+                        <tr>
+                            <td>{{ ticket.session.film.title }}</td>
+                            <td>{{ ticket.session.start_time }}</td>
+                            <td>{{ ticket.session.hall.name }}</td>
+                            <td>{{ ticket.seat_number }}</td>
+                            <td>{{ ticket.payment_status }}</td>
+                            <td>
+                                {% if not ticket.is_paid %}
+                                    <form method="POST" action="{% url 'payment' ticket.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="pay-button">Оплатить</button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-tickets-message">У вас пока нет забронированных билетов.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
