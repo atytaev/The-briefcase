@@ -79,6 +79,7 @@ WSGI_APPLICATION = 'cinema.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
@@ -137,3 +138,5 @@ AUTH_USER_MODEL = 'users.User'
 PAYPAL_MODE = 'sandbox'  # Используйте 'live' для реальных платежей
 PAYPAL_CLIENT_ID = os.environ['CLIENT_ID']
 PAYPAL_CLIENT_SECRET = os.environ['CLIENT_SECRET']
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
