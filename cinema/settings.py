@@ -15,8 +15,10 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = bool(os.environ['DEBUG'])
 
 ALLOWED_HOSTS = [
-    os.environ[key]
-    for key in os.environ if key.startswith('ALLOWED_HOST_')
+    host.strip()
+    for key, host in os.environ.items()
+    if key.startswith('ALLOWED_HOSTS_')
+    for host in host.split(',')
 ]
 
 
