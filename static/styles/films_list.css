@@ -1,7 +1,6 @@
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('media/title.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
