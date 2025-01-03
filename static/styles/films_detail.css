@@ -9,6 +9,7 @@
     display: flex;
     gap: 40px;
     margin-bottom: 30px;
+    flex-wrap: wrap; /* Для адаптивности */
 }
 
 .film-poster img {
@@ -52,7 +53,7 @@
     line-height: 1.6;
 }
 
-/* Стилизация кнопок, если необходимо */
+/* Стилизация кнопок */
 .film-info .btn {
     font-size: 1rem;
     color: #fff;
@@ -67,4 +68,75 @@
 .film-info .btn:hover {
     background-color: #f44336;
     border-color: #f44336;
+}
+
+/* Адаптивность */
+
+/* На экранах до 1200px */
+@media (max-width: 1200px) {
+    .film-detail-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .film-info h1 {
+        font-size: 1.8rem;
+    }
+    .film-info p {
+        font-size: 1.1rem;
+    }
+    .film-description h2 {
+        font-size: 1.6rem;
+    }
+    .film-description p {
+        font-size: 0.95rem;
+    }
+}
+
+/* На экранах до 768px */
+@media (max-width: 768px) {
+    .film-detail {
+        padding: 30px 15px;
+    }
+    .film-poster img {
+        max-width: 100%;
+    }
+    .film-info h1 {
+        font-size: 1.6rem;
+    }
+    .film-info p {
+        font-size: 1rem;
+    }
+    .film-description h2 {
+        font-size: 1.4rem;
+    }
+    .film-description p {
+        font-size: 0.9rem;
+    }
+    .film-info .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* На экранах до 480px */
+@media (max-width: 480px) {
+    .film-detail {
+        padding: 20px 10px;
+    }
+    .film-info h1 {
+        font-size: 1.4rem;
+    }
+    .film-info p {
+        font-size: 0.95rem;
+    }
+    .film-description h2 {
+        font-size: 1.2rem;
+    }
+    .film-description p {
+        font-size: 0.85rem;
+    }
+    .film-info .btn {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+    }
 }

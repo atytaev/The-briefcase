@@ -77,6 +77,70 @@ h2 {
         font-size: 24px;
     }
 
+    .session-detail {
+        padding: 15px;
+    }
+
+    .session-detail h3 {
+        font-size: 20px;
+    }
+
+    .session-detail p {
+        font-size: 14px;
+    }
+
+    .session-detail .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Адаптация для экранов до 1024px (планшеты) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .session-detail {
+        padding: 18px;
+    }
+
+    .session-detail h3 {
+        font-size: 22px;
+    }
+
+    .session-detail p {
+        font-size: 15px;
+    }
+
+    .session-detail .btn {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+}
+
+/* Адаптация для экранов до 768px (мобильные устройства) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .session-detail {
+        padding: 12px;
+    }
+
+    .session-detail h3 {
+        font-size: 20px;
+    }
+
     .session-detail p {
         font-size: 14px;
     }

@@ -1,16 +1,25 @@
 /* Общий стиль */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background-color: #0d0d0d;
     color: #fff;
     line-height: 1.6;
+    font-size: 16px; /* Задали базовый размер шрифта */
 }
 
+/* Контейнер */
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px; /* Ограничиваем максимальную ширину */
+    margin: 0 auto;    /* Центрируем контейнер */
+    padding: 0 15px;   /* Отступы с боков */
 }
 
 /* Шапка */
@@ -18,7 +27,6 @@ body {
     background-color: #1a1a1a;
     padding: 20px 0;
 }
-
 
 /* Контейнер для элементов внутри хедера */
 .header-content {
@@ -53,12 +61,45 @@ body {
     border-color: #f44336;
 }
 
+/* Логотип */
 .logo-img {
     width: 90px; /* Задайте нужную ширину логотипа */
-    height: 90; /* Сохраняет пропорции */
+    height: auto; /* Сохраняет пропорции */
     display: block; /* Убирает возможные отступы */
 }
 
+/* Главные заголовки */
+h1 {
+    font-size: 5vw;  /* Используем vw для адаптивности */
+    margin-bottom: 20px;
+}
 
+p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
 
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 
+    h1 {
+        font-size: 6vw; /* Шрифт будет уменьшаться на меньших экранах */
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    /* Мобильная версия хедера */
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

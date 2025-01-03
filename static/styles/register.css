@@ -87,3 +87,80 @@ form .auth-links a:hover {
     height: 100vh;
     background-color: #0d0d0d;
 }
+
+/* Адаптивность */
+
+/* На экранах до 1200px */
+@media (max-width: 1200px) {
+    form {
+        max-width: 90%; /* Уменьшаем ширину формы */
+    }
+
+    form h2 {
+        font-size: 1.4rem;
+    }
+
+    form input[type="text"], form input[type="password"], form input[type="email"], form input[type="date"], form input[type="file"] {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    form button {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    form .auth-links a {
+        font-size: 0.9rem;
+    }
+}
+
+/* На экранах до 768px */
+@media (max-width: 768px) {
+    form {
+        padding: 10px;
+    }
+
+    form h2 {
+        font-size: 1.2rem;
+    }
+
+    form input[type="text"], form input[type="password"], form input[type="email"], form input[type="date"], form input[type="file"] {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+
+    form button {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+
+    form .auth-links a {
+        font-size: 0.85rem;
+    }
+}
+
+/* На экранах до 480px */
+@media (max-width: 480px) {
+    form {
+        padding: 8px;
+    }
+
+    form h2 {
+        font-size: 1.1rem;
+    }
+
+    form input[type="text"], form input[type="password"], form input[type="email"], form input[type="date"], form input[type="file"] {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    form button {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+
+    form .auth-links a {
+        font-size: 0.8rem;
+    }
+}

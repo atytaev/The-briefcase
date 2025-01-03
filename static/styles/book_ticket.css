@@ -1,11 +1,13 @@
 /* Общий стиль для всего контейнера */
 .ticket-container {
-    background-color: #333; /* Темный фон для контейнера */
-    color: white; /* Белый цвет текста */
+    background-color: #333;
+    color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Выравниваем текст по центру */
+    text-align: center;
+    max-width: 800px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем на экране */
 }
 
 /* Заголовок */
@@ -22,21 +24,21 @@
 
 /* Сообщение об ошибке */
 .error-message {
-    color: #ff6b6b; /* Красный цвет для ошибки */
+    color: #ff6b6b;
     font-size: 16px;
     margin-bottom: 20px;
 }
 
 /* Стили для экрана */
 .screen-container {
-    background-color: #555; /* Темно-серый фон для экрана */
-    padding: 5px 0px; /* Увеличение отступов для высоты */
+    background-color: #555;
+    padding: 5px 0px;
     text-align: center;
     margin-bottom: 30px;
-    font-size: 18px; /* Размер текста для экрана */
-    width: 50%; /* Уменьшение ширины до половины страницы */
-    margin: 0 auto 30px; /* Центрирование экрана */
-    border-radius: 50px; /* Скругление краев */
+    font-size: 18px;
+    width: 50%; /* Ширина экрана */
+    margin: 0 auto 30px;
+    border-radius: 50px;
 }
 
 .screen-label {
@@ -62,20 +64,21 @@
     width: 40px;
     height: 40px;
     margin: 5px;
-    background-color: #757575; /* Свободное место */
+    background-color: #757575;
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .seat.booked {
-    background-color: #f44336; /* Занятое место */
+    background-color: #f44336;
     cursor: not-allowed;
 }
 
 .seat.selected {
-    background-color: #007bff; /* Выбранное место */
+    background-color: #007bff;
     color: black;
 }
 
@@ -95,11 +98,98 @@
 }
 
 .ticket-submit:hover {
-    background-color: #0056b3; /* Темный оттенок синего при наведении */
+    background-color: #0056b3;
 }
 
 .ticket-submit:active {
-    transform: scale(0.98); /* Легкое сжатие кнопки при клике */
+    transform: scale(0.98);
 }
 
+/* --- Адаптивность --- */
+@media (max-width: 1024px) {
+    /* Контейнер */
+    .ticket-container {
+        padding: 15px;
+    }
 
+    /* Экран */
+    .screen-container {
+        width: 70%;
+    }
+
+    /* Кнопки мест */
+    .seat {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Текстовые блоки */
+    .ticket-header {
+        font-size: 22px;
+    }
+
+    .ticket-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Контейнер */
+    .ticket-container {
+        padding: 10px;
+    }
+
+    /* Экран */
+    .screen-container {
+        width: 90%;
+    }
+
+    /* Кнопки мест */
+    .seat {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Текстовые блоки */
+    .ticket-header {
+        font-size: 20px;
+    }
+
+    .ticket-description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Контейнер */
+    .ticket-container {
+        padding: 10px;
+    }
+
+    /* Экран */
+    .screen-container {
+        font-size: 16px;
+        width: 100%;
+    }
+
+    /* Кнопки мест */
+    .seat {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Текстовые блоки */
+    .ticket-header {
+        font-size: 18px;
+    }
+
+    .ticket-description {
+        font-size: 12px;
+    }
+
+    /* Кнопка бронирования */
+    .ticket-submit {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}

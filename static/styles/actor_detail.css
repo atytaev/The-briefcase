@@ -1,6 +1,6 @@
 /* Детали актёра */
 .actor-detail {
-    padding: 40px 0;
+    padding: 40px 20px; /* Уменьшено внутреннее поле для маленьких экранов */
     background-color: #0f0f0f;
     color: #fff;
 }
@@ -10,13 +10,14 @@
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    padding: 0 15px; /* Добавлен отступ для узких экранов */
 }
 
 /* Фото актёра */
 .actor-photo {
-    max-width: 100%x;
-    width: auto;
-    height: 50 px;
+    max-width: 100%;
+    width: 100%;
+    height: auto; /* Высота адаптируется пропорционально */
     object-fit: cover;
     border-radius: 15%;
     border: 4px solid #f44336;
@@ -77,4 +78,51 @@
 
 .film-list li a:hover {
     color: #ff7961;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 768px) {
+    /* Уменьшаем заголовки и текстовые блоки */
+    .actor-detail h1 {
+        font-size: 1.8rem;
+    }
+
+    .actor-detail p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    /* Адаптируем фильмографию */
+    .filmography h2 {
+        font-size: 1.5rem;
+    }
+
+    .film-list li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Компактный вид для узких экранов */
+    .actor-detail h1 {
+        font-size: 1.5rem;
+    }
+
+    .actor-detail p {
+        font-size: 0.9rem;
+    }
+
+    .filmography h2 {
+        font-size: 1.3rem;
+    }
+
+    .film-list li {
+        font-size: 0.9rem;
+    }
+
+    /* Фото актёра */
+    .actor-photo {
+        width: 80%; /* Уменьшаем размер изображения */
+        margin: 0 auto 20px; /* Центрируем изображение */
+    }
 }

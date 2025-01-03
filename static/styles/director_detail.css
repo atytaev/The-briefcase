@@ -77,10 +77,25 @@
     color: #e53935;
 }
 
-/* Адаптивность */
+/* --- Адаптивность --- */
+
+/* Для планшетов и маленьких экранов */
 @media (max-width: 768px) {
     .director-detail .container {
         padding: 0 20px;
+    }
+
+    .director-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .director-detail h1 {
+        font-size: 1.8rem;
+    }
+
+    .director-detail p {
+        font-size: 1rem;
     }
 
     .filmography {
@@ -93,5 +108,33 @@
 
     .film-list li {
         font-size: 1rem;
+    }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 480px) {
+    .director-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .director-detail h1 {
+        font-size: 1.6rem;
+    }
+
+    .director-detail p {
+        font-size: 0.9rem;
+    }
+
+    .filmography {
+        padding: 10px;
+    }
+
+    .filmography h2 {
+        font-size: 1.4rem;
+    }
+
+    .film-list li {
+        font-size: 0.9rem;
     }
 }

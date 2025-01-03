@@ -2,6 +2,8 @@
 .films {
     padding: 40px 0;
     background-color: #0f0f0f;
+    max-width: 100%; /* Убедимся, что контейнер не выходит за пределы экрана */
+    overflow: hidden; /* Скрыть все, что выходит за пределы */
 }
 
 .films h1 {
@@ -13,11 +15,13 @@
 
 .films-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Автоматически подстраивает количество колонок */
     gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
+    max-width: 100%; /* Убедимся, что они не выходят за пределы */
+    box-sizing: border-box;
 }
 
 .film-item {
@@ -25,6 +29,7 @@
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease;
+    width: 100%; /* Карточки не должны выходить за пределы */
 }
 
 .film-item:hover {
@@ -44,6 +49,7 @@
     width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, opacity 0.3s ease;
+    height: 100%; /* Сделать карточку гибкой по высоте */
 }
 
 /* Эффект при наведении - прозрачность */
@@ -119,7 +125,7 @@
     }
 
     .films-list {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
     .film-title {
